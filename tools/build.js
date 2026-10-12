@@ -58,11 +58,12 @@ for (const rel of fs.readdirSync(PAGES).filter(f => f.endsWith('.html'))) {
     .replace(/\{\{title\}\}/g, esc(meta.title ? `${meta.title} | ${SITE_NAME}` : `${SITE_NAME} — ${TAGLINE}`))
     .replace(/\{\{description\}\}/g, esc(meta.description || ''))
     .replace(/\{\{bodyClass\}\}/g, meta.bodyClass || '')
+    .replace(/\{\{active:(\w+)\}\}/g, (x, key) => (meta.nav === key ? ' is-active' : ''))
     .replace(/\{\{scripts\}\}/g, () => scripts)
     .replace(/\{\{preload\}\}/g, () => preload)
     .replace(/\{\{robots\}\}/g, PREVIEW ? '<meta name="robots" content="noindex, nofollow">' : '')
     .replace(/\{\{previewBar\}\}/g, PREVIEW
-      ? `<div class="preview-bar">Design preview for Fashion of Splendor — not the live site. <span class="ph">[BRACKETED]</span> items are details still to confirm for 2027. <a href="${FEEDBACK}">Send feedback</a></div>`
+      ? `<div class="preview-bar">Design preview for Fashion of Splendor — not the live site. <span class="ph">Bracketed</span> items are details still to confirm for 2027. <a href="${FEEDBACK}">Send feedback</a></div>`
       : '')
     .replace(/\{\{version\}\}/g, version);
 
