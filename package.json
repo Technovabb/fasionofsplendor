@@ -1,0 +1,9 @@
+{
+  "name": "fashionofsplendor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fashion of Splendor — Foreday Morning Band (Barbados Crop Over) website.",
+  "scripts": {
+    "build": "node tools/build.js"
+  }
+}
